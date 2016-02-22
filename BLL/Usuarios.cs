@@ -65,7 +65,7 @@ namespace BLL
             catch (Exception ex)
             {
                 throw ex;
-            }
+            } 
         }
 
         public override bool Eliminar()
