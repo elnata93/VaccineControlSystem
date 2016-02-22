@@ -44,7 +44,9 @@
     <Compile Include="ConexionDb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\VaccineControlSystemDb.sql" />
   </ItemGroup>
