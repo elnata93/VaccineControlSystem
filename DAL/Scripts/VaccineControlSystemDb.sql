@@ -27,3 +27,5 @@ go
 create table FechasVanacion(FechaVanacionId int primary key identity(1,1),
 PrimeraDosis date,SegundaDosis date,TerceraDosis date,
 PrimerRefuerzo date,SegundoRefuerzo date);
+go 
+create table PacientesVacunas(PacienteVacunaId int primary key identity(1,1),PacienteId int,FechaVanacionId int);
