@@ -36,11 +36,9 @@ namespace BLL
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             return retorno;
-           
         }
 
         public override bool Editar()
@@ -52,7 +50,6 @@ namespace BLL
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             return retorno;
@@ -67,7 +64,6 @@ namespace BLL
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             return retorno;
@@ -84,15 +80,12 @@ namespace BLL
                     this.TipoUsuarioId = (int)data.Rows[0]["TipoUsuarioId"];
                     this.Descripcion = data.Rows[0]["Descripcion"].ToString();
                 }
-                
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             return data.Rows.Count > 0;
-            
         }
 
         public override DataTable Listado(string Campos, string Condicion, string Orden)
@@ -100,7 +93,6 @@ namespace BLL
             string ordenFinal = "";
             if (!Orden.Equals(""))
                 ordenFinal = " Orden by  " + Orden;
-
             return conexion.ObtenerDatos("Select " + Campos + " From TiposUsuarios Where " + Condicion + Orden);
         }
     }

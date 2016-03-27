@@ -101,14 +101,6 @@ namespace BLL
             return conexion.ObtenerDatos("Select " + Campos + " From Vacunas where " + Condicion + Orden);
         }
 
-        public static DataTable Imprimir(string filtro = "1=1")
-        {
-            DataTable dt = new DataTable();
-            ConexionDb conexion = new ConexionDb();
-            dt = conexion.ObtenerDatos("Select * from Recepcion.Vacunas() Where  Descripcion Like '%" + filtro + "%'");
-            return dt;
-        }
-
         //public bool Existe(int id)
         //{
         //    using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["VacunaId"].ToString()))

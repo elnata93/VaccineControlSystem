@@ -36,7 +36,6 @@ namespace BLL
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             return retorno;
@@ -51,7 +50,6 @@ namespace BLL
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             return retorno;
@@ -66,7 +64,6 @@ namespace BLL
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             return retorno;
@@ -86,7 +83,6 @@ namespace BLL
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             return data.Rows.Count > 0;
@@ -97,16 +93,7 @@ namespace BLL
             string ordenFinal = "";
             if (!Orden.Equals(""))
                 ordenFinal = " Order by  " + Orden;
-
             return conexion.ObtenerDatos("Select " + Campos + " From Ciudades Where " + Condicion + Orden);
-        }
-
-        public static DataTable Imprimir(string filtro = "1=1")
-        {
-            DataTable dt = new DataTable();
-            ConexionDb conexion = new ConexionDb();
-            dt = conexion.ObtenerDatos("Select * from Recepcion.Ciudades() Where  Descripcion Like '%" + filtro + "%'");
-            return dt;
         }
     }
 }

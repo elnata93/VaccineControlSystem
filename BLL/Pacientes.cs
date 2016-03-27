@@ -142,7 +142,6 @@ namespace BLL
             }       
             catch (Exception ex)
             {
-
                 throw ex;
             }
             return data.Rows.Count > 0;
@@ -152,16 +151,8 @@ namespace BLL
         {
             string ordenFinal = "";
             if (!ordenFinal.Equals(""))
-            ordenFinal = "Order by" + Orden;
+            ordenFinal = " Order by " + Orden;
             return conexion.ObtenerDatos("select " + Campos + "From Pacientes where " + Condicion + Orden);
-        }
-
-        public static DataTable Imprimir(string filtro = "1=1")
-        {
-            DataTable dt = new DataTable();
-            ConexionDb conexion = new ConexionDb();
-            dt = conexion.ObtenerDatos("Select * from Recepcion.Pacientes() Where  Nombres Like '%" + filtro + "%'");
-            return dt;
         }
     }
 }

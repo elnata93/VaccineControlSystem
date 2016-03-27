@@ -10,10 +10,7 @@ namespace BLL
     {
         public int PacienteVacunaId { get; set; }
         public int PacienteId { get; set; }
-        public string Nombres { get; set; }
-        public string Apellidos { get; set; }
         public int VacunaId { get; set; }
-        public string Descripcion { get; set; }
 
         public PacientesVacunas()
         {

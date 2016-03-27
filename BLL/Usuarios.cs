@@ -140,14 +140,6 @@ namespace BLL
             return conexion.ObtenerDatos("Select " + Campos + " From Usuarios Where " + Condicion + Orden);
         }
 
-        public static DataTable Imprimir(string filtro = "1=1")
-        {
-            DataTable dt = new DataTable();
-            ConexionDb conexion = new ConexionDb();
-            dt = conexion.ObtenerDatos("Select * from Recepcion.Usuarios() Where  Nombres Like '%" + filtro + "%'");
-            return dt;
-        }
-
         public bool Login(string nombre, string contrasena)
         {
             DataTable data = new DataTable();

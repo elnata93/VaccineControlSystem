@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.VacunagroupBox = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.NoradioButton = new System.Windows.Forms.RadioButton();
@@ -58,24 +57,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PacienteerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.VacunagroupBox.SuspendLayout();
+            this.VacunagroupBox = new System.Windows.Forms.GroupBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VacunadataGridView)).BeginInit();
             this.SexogroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PacienteerrorProvider)).BeginInit();
+            this.VacunagroupBox.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // VacunagroupBox
-            // 
-            this.VacunagroupBox.Controls.Add(this.label7);
-            this.VacunagroupBox.Controls.Add(this.groupBox2);
-            this.VacunagroupBox.Controls.Add(this.VacunacomboBox);
-            this.VacunagroupBox.Location = new System.Drawing.Point(13, 262);
-            this.VacunagroupBox.Name = "VacunagroupBox";
-            this.VacunagroupBox.Size = new System.Drawing.Size(509, 67);
-            this.VacunagroupBox.TabIndex = 61;
-            this.VacunagroupBox.TabStop = false;
-            this.VacunagroupBox.Text = "Vacuna";
             // 
             // label7
             // 
@@ -150,6 +138,7 @@
             this.Agregarbutton.TabStop = false;
             this.Agregarbutton.Text = "Agregar";
             this.Agregarbutton.UseVisualStyleBackColor = true;
+            this.Agregarbutton.Click += new System.EventHandler(this.Agregarbutton_Click);
             // 
             // Eliminarbutton
             // 
@@ -163,6 +152,7 @@
             this.Eliminarbutton.Text = "Eliminar";
             this.Eliminarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Eliminarbutton.UseVisualStyleBackColor = true;
+            this.Eliminarbutton.Click += new System.EventHandler(this.Eliminarbutton_Click);
             // 
             // Guardarbutton
             // 
@@ -348,6 +338,18 @@
             // 
             this.PacienteerrorProvider.ContainerControl = this;
             // 
+            // VacunagroupBox
+            // 
+            this.VacunagroupBox.Controls.Add(this.label7);
+            this.VacunagroupBox.Controls.Add(this.groupBox2);
+            this.VacunagroupBox.Controls.Add(this.VacunacomboBox);
+            this.VacunagroupBox.Location = new System.Drawing.Point(13, 262);
+            this.VacunagroupBox.Name = "VacunagroupBox";
+            this.VacunagroupBox.Size = new System.Drawing.Size(509, 67);
+            this.VacunagroupBox.TabIndex = 61;
+            this.VacunagroupBox.TabStop = false;
+            this.VacunagroupBox.Text = "Vacuna";
+            // 
             // PacientesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -376,22 +378,21 @@
             this.Controls.Add(this.label1);
             this.Name = "PacientesForm";
             this.Text = "PacientesForm";
-            this.VacunagroupBox.ResumeLayout(false);
-            this.VacunagroupBox.PerformLayout();
+            this.Load += new System.EventHandler(this.PacientesForm_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VacunadataGridView)).EndInit();
             this.SexogroupBox.ResumeLayout(false);
             this.SexogroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PacienteerrorProvider)).EndInit();
+            this.VacunagroupBox.ResumeLayout(false);
+            this.VacunagroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox VacunagroupBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton NoradioButton;
@@ -420,5 +421,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ErrorProvider PacienteerrorProvider;
+        private System.Windows.Forms.GroupBox VacunagroupBox;
     }
 }
