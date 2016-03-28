@@ -67,7 +67,7 @@ namespace BLL
                 this.PacienteId = (int)identity;
                 foreach (var item in PacienteVacuna)
                 {
-                    conexion.Ejecutar(String.Format("Insert Into PacientesVacunas(PacienteId,VacunaId,Descripcion) values({0},{1},{2}) ",this.PacienteId,item.VacunaId,item.Descripcion));
+                    conexion.Ejecutar(String.Format("Insert Into PacientesVacunas(PacienteId,VacunaId,Descripcion) values({0},{1},{2}) ",this.PacienteId,item.VacunaId));
                 }   
             }
             catch (Exception ex)
@@ -89,7 +89,7 @@ namespace BLL
                     conexion.Ejecutar(String.Format("delete from PacientesVacunas where PacienteId = " + this.PacienteId));
                     foreach (var item in PacienteVacuna)
                     {
-                        conexion.Ejecutar(String.Format("Insert Into PacientesVacunas(PacienteId,VacunaId,Descripcion) values({0},{1},{2}) ", this.PacienteId,item.VacunaId, item.Descripcion));
+                        conexion.Ejecutar(String.Format("Insert Into PacientesVacunas(PacienteId,VacunaId,Descripcion) values({0},{1},{2}) ", this.PacienteId,item.VacunaId));
                     }
                 }
             }

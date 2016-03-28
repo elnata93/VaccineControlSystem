@@ -636,7 +636,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DataSet1</DataSetName>
+        <DataSetName>Pacientes</DataSetName>
         <Height>0.5in</Height>
         <Width>12.34376in</Width>
         <Style>
@@ -668,7 +668,7 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSet1">
+    <DataSet Name="Pacientes">
       <Query>
         <DataSourceName>VaccineControlSystemDbDataSet</DataSourceName>
         <CommandText>/* Local Query */</CommandText>

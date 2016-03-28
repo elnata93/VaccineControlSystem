@@ -145,7 +145,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -168,7 +167,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DataSet1</DataSetName>
+        <DataSetName>Vacunas</DataSetName>
         <Height>0.5in</Height>
         <Width>3.82292in</Width>
         <Style>
@@ -200,7 +199,7 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSet1">
+    <DataSet Name="Vacunas">
       <Query>
         <DataSourceName>VaccineControlSystemDbDataSet</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
