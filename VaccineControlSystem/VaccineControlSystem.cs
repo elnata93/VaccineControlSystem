@@ -79,6 +79,20 @@ namespace VaccineControlSystem
             paciente.Show();
         }
 
+        private void historialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Registros.HistorialForm rhist = new Registros.HistorialForm();
+            rhist.MdiParent = this;
+            rhist.Show();
+        }
+
+        private void historialConsultasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Consultas.ConsultaHistorial rhist = new Consultas.ConsultaHistorial();
+            rhist.MdiParent = this;
+            rhist.Show();
+        }
+
         private void cerrarSeccionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Login log = new Login();
@@ -89,6 +103,41 @@ namespace VaccineControlSystem
         private void salirToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void CiudadestoolStripButton_Click(object sender, EventArgs e)
+        {
+            Registros.CiudadesForm ciudad = new Registros.CiudadesForm();
+            ciudad.MdiParent = this;
+            ciudad.Show();
+        }
+
+        private void UsuariostoolStripButton_Click(object sender, EventArgs e)
+        {
+            Registros.UsuariosForm usuario = new Registros.UsuariosForm();
+            usuario.MdiParent = this;
+            usuario.Show();
+        }
+
+        private void VacunastoolStripButton_Click(object sender, EventArgs e)
+        {
+            Registros.VacunasForm vacuna = new Registros.VacunasForm();
+            vacuna.MdiParent = this;
+            vacuna.Show();
+        }
+
+        private void PacientestoolStripButton_Click(object sender, EventArgs e)
+        {
+            Registros.PacientesForm paciente = new Registros.PacientesForm();
+            paciente.MdiParent = this;
+            paciente.Show();
+        }
+
+        private void HistorialtoolStripButton_Click(object sender, EventArgs e)
+        {
+            Registros.HistorialForm rhist = new Registros.HistorialForm();
+            rhist.MdiParent = this;
+            rhist.Show();
         }
     }
 }

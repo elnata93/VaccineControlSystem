@@ -48,7 +48,7 @@
             this.NombreVacunatextBox.Location = new System.Drawing.Point(84, 176);
             this.NombreVacunatextBox.MaxLength = 100;
             this.NombreVacunatextBox.Name = "NombreVacunatextBox";
-            this.NombreVacunatextBox.Size = new System.Drawing.Size(238, 20);
+            this.NombreVacunatextBox.Size = new System.Drawing.Size(228, 20);
             this.NombreVacunatextBox.TabIndex = 30;
             this.NombreVacunatextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DescripciontextBox_KeyPress_1);
             // 
@@ -72,11 +72,11 @@
             // 
             // Buscarbutton
             // 
-            this.Buscarbutton.Image = global::VaccineControlSystem.Properties.Resources._1457049638_Search;
+            this.Buscarbutton.Image = global::VaccineControlSystem.Properties.Resources._1459753068_Search;
             this.Buscarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Buscarbutton.Location = new System.Drawing.Point(260, 76);
+            this.Buscarbutton.Location = new System.Drawing.Point(264, 93);
             this.Buscarbutton.Name = "Buscarbutton";
-            this.Buscarbutton.Size = new System.Drawing.Size(62, 65);
+            this.Buscarbutton.Size = new System.Drawing.Size(48, 48);
             this.Buscarbutton.TabIndex = 26;
             this.Buscarbutton.Text = "Buscar";
             this.Buscarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -86,11 +86,11 @@
             // Eliminarbutton
             // 
             this.Eliminarbutton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.Eliminarbutton.Image = global::VaccineControlSystem.Properties.Resources._1456880026_Delete;
+            this.Eliminarbutton.Image = global::VaccineControlSystem.Properties.Resources._1459753062_Delete;
             this.Eliminarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Eliminarbutton.Location = new System.Drawing.Point(212, 227);
+            this.Eliminarbutton.Location = new System.Drawing.Point(216, 240);
             this.Eliminarbutton.Name = "Eliminarbutton";
-            this.Eliminarbutton.Size = new System.Drawing.Size(62, 65);
+            this.Eliminarbutton.Size = new System.Drawing.Size(52, 52);
             this.Eliminarbutton.TabIndex = 25;
             this.Eliminarbutton.Text = "Eliminar";
             this.Eliminarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -100,11 +100,11 @@
             // Guardarbutton
             // 
             this.Guardarbutton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.Guardarbutton.Image = global::VaccineControlSystem.Properties.Resources._1456869956_Save;
+            this.Guardarbutton.Image = global::VaccineControlSystem.Properties.Resources._1459753117_Save;
             this.Guardarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Guardarbutton.Location = new System.Drawing.Point(133, 227);
+            this.Guardarbutton.Location = new System.Drawing.Point(136, 240);
             this.Guardarbutton.Name = "Guardarbutton";
-            this.Guardarbutton.Size = new System.Drawing.Size(62, 65);
+            this.Guardarbutton.Size = new System.Drawing.Size(53, 52);
             this.Guardarbutton.TabIndex = 24;
             this.Guardarbutton.Text = "Guardar";
             this.Guardarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -114,11 +114,11 @@
             // Nuevobutton
             // 
             this.Nuevobutton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.Nuevobutton.Image = global::VaccineControlSystem.Properties.Resources._1456869972_Add;
+            this.Nuevobutton.Image = global::VaccineControlSystem.Properties.Resources._1459753052_Add;
             this.Nuevobutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Nuevobutton.Location = new System.Drawing.Point(51, 227);
+            this.Nuevobutton.Location = new System.Drawing.Point(55, 240);
             this.Nuevobutton.Name = "Nuevobutton";
-            this.Nuevobutton.Size = new System.Drawing.Size(62, 65);
+            this.Nuevobutton.Size = new System.Drawing.Size(52, 52);
             this.Nuevobutton.TabIndex = 23;
             this.Nuevobutton.Text = "Nuevo";
             this.Nuevobutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -129,7 +129,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(27, 22);
+            this.label3.Location = new System.Drawing.Point(27, 24);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(285, 31);
             this.label3.TabIndex = 31;
@@ -151,7 +151,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 304);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(330, 304);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.NombreVacunatextBox);
             this.Controls.Add(this.IdtextBox);
@@ -162,8 +163,11 @@
             this.Controls.Add(this.Guardarbutton);
             this.Controls.Add(this.Nuevobutton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "VacunasForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VacunasForm";
+            this.Load += new System.EventHandler(this.VacunasForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.VacunaerrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

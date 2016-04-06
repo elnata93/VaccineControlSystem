@@ -72,6 +72,12 @@
     <Compile Include="Consultas\ConsultaCiudadesForm.Designer.cs">
       <DependentUpon>ConsultaCiudadesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Consultas\ConsultaHistorial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaHistorial.Designer.cs">
+      <DependentUpon>ConsultaHistorial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Consultas\ConsultaPacientesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,12 @@
     </Compile>
     <Compile Include="Registros\CiudadesForm.Designer.cs">
       <DependentUpon>CiudadesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\HistorialForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\HistorialForm.Designer.cs">
+      <DependentUpon>HistorialForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Registros\PacientesForm.cs">
       <SubType>Form</SubType>
@@ -142,6 +154,9 @@
     <EmbeddedResource Include="Consultas\ConsultaCiudadesForm.resx">
       <DependentUpon>ConsultaCiudadesForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaHistorial.resx">
+      <DependentUpon>ConsultaHistorial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaPacientesForm.resx">
       <DependentUpon>ConsultaPacientesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registros\CiudadesForm.resx">
       <DependentUpon>CiudadesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros\HistorialForm.resx">
+      <DependentUpon>HistorialForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registros\PacientesForm.resx">
       <DependentUpon>PacientesForm.cs</DependentUpon>
@@ -213,13 +231,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DataBase\VaccineControlSystemDb.mdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="DataBase\VaccineControlSystemDb_log.ldf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <DependentUpon>VaccineControlSystemDb.mdf</DependentUpon>
-    </Content>
+    <None Include="Resources\1459767094_Remove.png" />
+    <None Include="Resources\1459767087_Check.png" />
+    <None Include="Resources\1459763953_application-pgp-signature.png" />
+    <None Include="Resources\1459753062_Delete.png" />
+    <None Include="Resources\1459753117_Save.png" />
+    <None Include="Resources\1459753052_Add.png" />
+    <None Include="Resources\1459753068_Search.png" />
     <None Include="Resources\1459040486_Search.png" />
     <None Include="Resources\Search.png" />
     <None Include="Resources\Health16-128.png" />
@@ -249,7 +267,20 @@
       <Name>BLL</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="DataBase\VaccineControlSystemDb.mdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DataBase\VaccineControlSystemDb_log.ldf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DependentUpon>VaccineControlSystemDb.mdf</DependentUpon>
+    </Content>
+    <None Include="Resources\o_9f484807f4d727cd-3.png" />
+    <None Include="Resources\medicine_jar.png" />
+    <None Include="Resources\Order_online_offer_cart_shopping.png" />
+    <None Include="Resources\o_eab4bbccb0a5c0a4-5.png" />
+    <None Include="Resources\app_type_tourist_512px_GREY_converted.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

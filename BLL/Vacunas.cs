@@ -49,7 +49,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(String.Format("Update Vacunas set NombresVacunas = '{0}' ", this.NombresVacunas));
+                retorno = conexion.Ejecutar(String.Format("Update Vacunas set NombresVacunas = '{0}' where VacunaId = {1} ", this.NombresVacunas,this.VacunaId));
             }
             catch (Exception ex)
             {

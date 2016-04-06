@@ -21,18 +21,23 @@ namespace VaccineControlSystem.Registros
         Vacunas vacuna = new Vacunas();
         Pacientes paciente = new Pacientes();
 
-        private void LlenarComboboxVacuna()
+        public void LlenarComboboxVacuna()
         {
             DataTable data = new DataTable();
-            data = paciente.Listado("VacunaId,NombresVacunas", "0=0", "ORDER BY VacunaId");
+            data = vacuna.Listado("VacunaId,NombresVacunas", "0=0", "ORDER BY VacunaId");
             VacunacomboBox.DataSource = data;
             VacunacomboBox.ValueMember = "VacunaId";
             VacunacomboBox.DisplayMember = "NombresVacunas";
         }
-        
+
         private void PacientesForm_Load(object sender, EventArgs e)
         {
             LlenarComboboxVacuna();
+
+            if (IdtextBox.Text != "")
+                Eliminarbutton.Enabled = true;
+            else
+                Eliminarbutton.Enabled = false;
         }
 
         public void LlenarCampos()
@@ -43,20 +48,33 @@ namespace VaccineControlSystem.Registros
                 NombretextBox.Text = paciente.Nombres;
                 ApellidotextBox.Text = paciente.Apellidos;
                 EdadtextBox.Text = paciente.Edad.ToString();
-
-
+                if (paciente.Sexo == 0)
+                {
+                    MasculinoradioButton.Checked = true;
+                }else
+                if (paciente.Sexo == 1)
+                {
+                    FemeninoradioButton.Checked = false;
+                }
                 DirecciontextBox.Text = paciente.Direccion;
-                TelefonomaskedTextBox.Text = paciente.Telefono;
-
-
-                VacunacomboBox.Text = paciente.VacunaId.ToString();
+                TelefonomaskedTextBox.Text = Convert.ToString(paciente.Telefono);
+                if (paciente.EsUnica == 0)
+                {
+                    SiradioButton.Checked = true;
+                }else
+                if (paciente.EsUnica == 1)
+                {
+                    NoradioButton.Checked = false;
+                }
                 foreach (var item in paciente.PacienteVacuna)
                 {
-                    VacunadataGridView.Rows.Add(item.VacunaId);
+                    VacunadataGridView.Rows.Add(Convert.ToString(item.VacunaId),item.NombresVacunas);
+                    VacunadataGridView.AutoGenerateColumns = false;
                 }
             }
         }
 
+       
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
             if (IdtextBox.Text == "")
@@ -77,20 +95,21 @@ namespace VaccineControlSystem.Registros
             }
         }
 
-        public void Limpiar()
+        private void Limpiar()
         {
             IdtextBox.Clear();
             NombretextBox.Clear();
             ApellidotextBox.Clear();
             EdadtextBox.Clear();
-            MasculinoradioButton.ResetText();
-            FemeninoradioButton.ResetText();
+            MasculinoradioButton.Checked = false;
+            FemeninoradioButton.Checked = false;
             DirecciontextBox.Clear();
             TelefonomaskedTextBox.Clear();
-            SiradioButton.ResetText();
-            NoradioButton.ResetText();
             VacunacomboBox.ResetText();
             VacunadataGridView.Rows.Clear();
+            PacienteerrorProvider.Clear();
+            SiradioButton.Checked = false;
+            NoradioButton.Checked = false;
 
         }
         private void Nuevobutton_Click(object sender, EventArgs e)
@@ -98,46 +117,53 @@ namespace VaccineControlSystem.Registros
             Limpiar();
         }
 
-        public void LlenarDatos()
+        private int ConvertirEntero(string numero)
+        {
+            int num;
+            int.TryParse(numero, out num);
+            return num;
+        }
+
+        private void LlenarDatos()
         {
             int id;
             int.TryParse(IdtextBox.Text, out id);
+            paciente.PacienteId = id;
             paciente.Nombres = NombretextBox.Text;
             paciente.Apellidos = ApellidotextBox.Text;
-            paciente.Edad = (int)Convert.ToInt32(EdadtextBox.Text);
-            if (paciente.Sexo == true)
+            paciente.Edad = Convert.ToInt32(EdadtextBox.Text);
+            if (MasculinoradioButton.Checked == true)
             {
-                MasculinoradioButton.Checked = true;
+                paciente.Sexo = 0;
             }
-            if(paciente.Sexo == false)
-            {
-                FemeninoradioButton.Checked = false;
+            if(FemeninoradioButton.Checked == false)
+            { 
+                paciente.Sexo = 1;
             }
             paciente.Direccion = DirecciontextBox.Text;
-            paciente.Telefono = TelefonomaskedTextBox.Text;
-            if (paciente.EsUnica == true)
+            paciente.Telefono = TelefonomaskedTextBox.Text.ToString();
+            if (SiradioButton.Checked == true)
             {
-                SiradioButton.Checked = true;
+                paciente.EsUnica = 0;
             }
-            if (paciente.EsUnica == false)
+            if (NoradioButton.Checked == false)
             {
-                NoradioButton.Checked = false;
+                paciente.EsUnica = 1;
             }
-            for(int i=0; i<VacunadataGridView.Rows.Count; i++)
+            foreach (DataGridViewRow row in VacunadataGridView.Rows)
             {
-                paciente.AgregarVacunas(paciente.PacienteId, (int)Convert.ToInt32(VacunadataGridView.Rows[i].ToString()));
+                paciente.AgregarVacunas((int)row.Cells["VacunaId"].Value,row.Cells["NombresVacunas"].Value.ToString());
             }
-
         }
 
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
-            if (NombretextBox.Text.Length == 0 || ApellidotextBox.Text.Length == 0 || EdadtextBox.Text.Length == 0 || DirecciontextBox.Text.Length == 0 || TelefonomaskedTextBox.Text.Length == 0 || VacunadataGridView.Rows.ToString() == "")
+            if (NombretextBox.Text.Length == 0 || ApellidotextBox.Text.Length == 0 || EdadtextBox.Text.Length == 0 || DirecciontextBox.Text.Length == 0 || TelefonomaskedTextBox.Text.Length == 0 ||  VacunadataGridView.Rows.Count == 0)
             {
                 MessageBox.Show("No puede dejar ningun campo vacio", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
-            if(IdtextBox.TextLength == 0)
+            if (IdtextBox.TextLength == 0)
             {
                 LlenarDatos();
                 if (paciente.Insertar())
@@ -148,6 +174,7 @@ namespace VaccineControlSystem.Registros
                 {
                     MessageBox.Show("Error al Guardar el Paciente");
                 }
+                Limpiar();
             }
             else
             {
@@ -162,6 +189,7 @@ namespace VaccineControlSystem.Registros
                     {
                         MessageBox.Show("Error al Editar el Paciente");
                     }
+                    Limpiar();
                 }
             }
         }
@@ -170,8 +198,8 @@ namespace VaccineControlSystem.Registros
         {
             if (IdtextBox.TextLength > 0)
             {
-                
-                paciente.PacienteId = int.Parse(IdtextBox.Text);
+
+                LlenarDatos();
 
                 if (paciente.Eliminar())
                 {
@@ -182,16 +210,52 @@ namespace VaccineControlSystem.Registros
                     MessageBox.Show("Error al Eliminar el Paciente");
                 }
             }
+            Limpiar();
         }
 
         private void Agregarbutton_Click(object sender, EventArgs e)
         {
-            VacunadataGridView.Rows.Add(VacunacomboBox.SelectedValue,VacunacomboBox.Text);
+            VacunadataGridView.Rows.Add(VacunacomboBox.SelectedValue, VacunacomboBox.Text);
         }
 
-        private void VacunagroupBox_Enter(object sender, EventArgs e)
+        private void IdtextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            LlenarComboboxVacuna();
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8))
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void NombretextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122 || (e.KeyChar == 32)) || (e.KeyChar == 130) || (e.KeyChar >= 160 && e.KeyChar <= 163))
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void ApellidotextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122 || (e.KeyChar == 32)) || (e.KeyChar == 130) || (e.KeyChar >= 160 && e.KeyChar <= 163))
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void DirecciontextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122 || (e.KeyChar == 32)) || (e.KeyChar == 130) || (e.KeyChar >= 160 && e.KeyChar <= 163))
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void EdadtextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8))
+                e.Handled = false;
+            else
+                e.Handled = true;
         }
     }
 }

@@ -63,9 +63,9 @@ namespace VaccineControlSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1456869956_Save {
+        internal static System.Drawing.Bitmap _1459753052_Add {
             get {
-                object obj = ResourceManager.GetObject("1456869956_Save", resourceCulture);
+                object obj = ResourceManager.GetObject("1459753052_Add", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace VaccineControlSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1456869972_Add {
+        internal static System.Drawing.Bitmap _1459753062_Delete {
             get {
-                object obj = ResourceManager.GetObject("1456869972_Add", resourceCulture);
+                object obj = ResourceManager.GetObject("1459753062_Delete", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace VaccineControlSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1456880026_Delete {
+        internal static System.Drawing.Bitmap _1459753068_Search {
             get {
-                object obj = ResourceManager.GetObject("1456880026_Delete", resourceCulture);
+                object obj = ResourceManager.GetObject("1459753068_Search", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace VaccineControlSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1457049638_Search {
+        internal static System.Drawing.Bitmap _1459753117_Save {
             get {
-                object obj = ResourceManager.GetObject("1457049638_Search", resourceCulture);
+                object obj = ResourceManager.GetObject("1459753117_Save", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,39 @@ namespace VaccineControlSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1459040486_Search {
+        internal static System.Drawing.Bitmap _1459763953_application_pgp_signature {
             get {
-                object obj = ResourceManager.GetObject("1459040486_Search", resourceCulture);
+                object obj = ResourceManager.GetObject("1459763953_application-pgp-signature", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1459767087_Check {
+            get {
+                object obj = ResourceManager.GetObject("1459767087_Check", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1459767094_Remove {
+            get {
+                object obj = ResourceManager.GetObject("1459767094_Remove", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap app_type_tourist_512px_GREY_converted {
+            get {
+                object obj = ResourceManager.GetObject("app_type_tourist_512px_GREY_converted", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,26 +153,6 @@ namespace VaccineControlSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Health16_128 {
-            get {
-                object obj = ResourceManager.GetObject("Health16-128", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Health16_48 {
-            get {
-                object obj = ResourceManager.GetObject("Health16-48", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Login_Manager {
             get {
                 object obj = ResourceManager.GetObject("Login-Manager", resourceCulture);
@@ -153,9 +163,39 @@ namespace VaccineControlSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Search {
+        internal static System.Drawing.Bitmap medicine_jar {
             get {
-                object obj = ResourceManager.GetObject("Search", resourceCulture);
+                object obj = ResourceManager.GetObject("medicine_jar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap o_9f484807f4d727cd_3 {
+            get {
+                object obj = ResourceManager.GetObject("o_9f484807f4d727cd-3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap o_eab4bbccb0a5c0a4_5 {
+            get {
+                object obj = ResourceManager.GetObject("o_eab4bbccb0a5c0a4-5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Order_online_offer_cart_shopping {
+            get {
+                object obj = ResourceManager.GetObject("Order_online_offer_cart_shopping", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

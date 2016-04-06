@@ -16,12 +16,10 @@ namespace BLL
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
         public int Edad { get; set; }
-        public bool Sexo { get; set; }
+        public int Sexo { get; set; }
         public string Direccion { get; set; }
         public string Telefono { get; set; }
-        public int CiudadId { get; set; }
-        public bool EsUnica { get; set; }
-        public int VacunaId { get; set; }
+        public int EsUnica { get; set; }
         public List<PacientesVacunas> PacienteVacuna { get; set; }
 
         public Pacientes()
@@ -30,20 +28,19 @@ namespace BLL
             this.Nombres = "";
             this.Apellidos = "";
             this.Edad = 0;
-            this.Sexo = true;
+            this.Sexo = 0;
             this.Direccion = "";
-            this.Telefono = "";
-            this.EsUnica = true;
-            this.VacunaId = 0;
+            this.EsUnica = 0;
+
             PacienteVacuna = new List<PacientesVacunas>();
         }
 
-        public void AgregarVacunas(int pacienteId, int vacunaId)
+        public void AgregarVacunas(int vacunaId,string nombresVacunas)
         {
-            PacienteVacuna.Add(new PacientesVacunas(PacienteId, VacunaId));
+            PacienteVacuna.Add(new PacientesVacunas(vacunaId, nombresVacunas));
         }
 
-        public Pacientes(int pacienteId,string nombres,string apellidos,int edad,bool sexo,string direccion,string telefono,bool esunica,int vacunaId)
+        public Pacientes(int pacienteId,string nombres,string apellidos,int edad,int sexo,string direccion,string telefono,int esUnica)
         {
             this.PacienteId = pacienteId;
             this.Nombres = nombres;
@@ -52,29 +49,30 @@ namespace BLL
             this.Sexo = sexo;
             this.Direccion = direccion;
             this.Telefono = telefono;
-            this.EsUnica = esunica;
-            this.VacunaId = vacunaId;
+            this.EsUnica = esUnica;
         }
         
         public override bool Insertar()
         {
-            bool retorno = false;
+            int retorno = 0;
             object identity;
             try
             {
-                identity = conexion.Ejecutar(String.Format("Insert Into Pacientes(Nombres,Apllidos,Edad,Sexo,Direccion,Telefono,EsUnica,VacunaId) values('{0}','{1}',{2},{3},'{4}','{5}',{6},{7} ) select @@Identity ",
-                    this.Nombres,this.Apellidos,this.Edad,this.Sexo,this.Direccion,this.Telefono,this.EsUnica,this.VacunaId));
-                this.PacienteId = (int)identity;
-                foreach (var item in PacienteVacuna)
+                identity = conexion.ObtenerValor(String.Format("Insert Into Pacientes(Nombres,Apellidos,Edad,Sexo,Direccion,Telefono,EsUnica) values('{0}','{1}',{2},{3},'{4}','{5}',{6}) select @@Identity ",
+                    this.Nombres,this.Apellidos,this.Edad,this.Sexo,this.Direccion,this.Telefono,this.EsUnica));
+
+                int.TryParse(identity.ToString(), out retorno);
+                this.PacienteId = retorno;
+                foreach (PacientesVacunas item in PacienteVacuna)
                 {
-                    conexion.Ejecutar(String.Format("Insert Into PacientesVacunas(PacienteId,VacunaId,Descripcion) values({0},{1},{2}) ",this.PacienteId,item.VacunaId));
+                    conexion.Ejecutar(String.Format("Insert Into PacientesVacunas(PacienteId,VacunaId,NombresVacunas) values({0},{1},'{2}') ", retorno,item.VacunaId,item.NombresVacunas));
                 }   
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            return retorno;
+            return retorno > 0;
         }
 
         public override bool Editar()
@@ -82,14 +80,14 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(String.Format("update Pacientes set Nombres='{0}',Apllidos='{1}',Edad={2},Sexo={3},Direccion='{4}',Telefono='{5}',EsUnica={6},VacunaId={7}",
-                    this.Nombres, this.Apellidos,this.Edad,this.Sexo,this.Direccion, this.Telefono, this.EsUnica, this.VacunaId));
+                retorno = conexion.Ejecutar(String.Format("update Pacientes set Nombres='{0}',Apellidos='{1}',Edad={2},Sexo={3},Direccion='{4}',Telefono='{5}',EsUnica = {6} where PacienteId = {7} ",
+                    this.Nombres, this.Apellidos,this.Edad,this.Sexo,this.Direccion, this.Telefono,this.EsUnica,this.PacienteId ));
                 if (retorno)
                 {
                     conexion.Ejecutar(String.Format("delete from PacientesVacunas where PacienteId = " + this.PacienteId));
-                    foreach (var item in PacienteVacuna)
+                    foreach (PacientesVacunas item in PacienteVacuna)
                     {
-                        conexion.Ejecutar(String.Format("Insert Into PacientesVacunas(PacienteId,VacunaId,Descripcion) values({0},{1},{2}) ", this.PacienteId,item.VacunaId));
+                        conexion.Ejecutar(String.Format("Insert Into PacientesVacunas(PacienteId,VacunaId,NombresVacunas) values({0},{1},'{2}') ", this.PacienteId,item.VacunaId,item.NombresVacunas));
                     }
                 }
             }
@@ -114,35 +112,29 @@ namespace BLL
             }
             return retorno;
         }
+       
 
         public override bool Buscar(int IdBuscado)
         {
             DataTable data = new DataTable();
             DataTable dt = new DataTable();
-            data = conexion.ObtenerDatos(String.Format("select * from Pacientes where Paciente= " + IdBuscado));
-            try
+            data = conexion.ObtenerDatos(String.Format("select * from Pacientes where PacienteId= " + IdBuscado));
+
+            if (data.Rows.Count > 0)
             {
-                if (data.Rows.Count > 0)
+                this.PacienteId = (int)data.Rows[0]["PacienteId"];
+                this.Nombres = data.Rows[0]["Nombres"].ToString();
+                this.Apellidos = data.Rows[0]["Apellidos"].ToString();
+                this.Edad = (int)data.Rows[0]["Edad"];
+                this.Sexo = (int)data.Rows[0]["Sexo"];
+                this.Direccion = data.Rows[0]["Direccion"].ToString();
+                this.Telefono = data.Rows[0]["Telefono"].ToString();
+                this.EsUnica = (int)data.Rows[0]["EsUnica"];
+                dt = conexion.ObtenerDatos(String.Format("Select * from PacientesVacunas where PacienteId= " + IdBuscado));
+                foreach (var item in dt.Rows)
                 {
-                    this.PacienteId = (int)data.Rows[0]["PacienteId"];
-                    this.Nombres = data.Rows[0]["Nombres"].ToString();
-                    this.Apellidos = data.Rows[0]["Apellidos"].ToString();
-                    this.Edad = (int)data.Rows[0]["Edad"];
-                    this.Sexo = (bool)data.Rows[0]["Sexo"];
-                    this.Direccion = data.Rows[0]["Direccion"].ToString();
-                    this.Telefono = data.Rows[0]["Telefono"].ToString();
-                    this.EsUnica = (bool)data.Rows[0]["EsUnica"];
-                    this.VacunaId = (int)data.Rows[0]["VacunaId"];
-                    dt = conexion.ObtenerDatos(String.Format("Select * from PacientesVacunas where PacienteId = " + IdBuscado));
-                    foreach (var item in PacienteVacuna)
-                    {
-                        AgregarVacunas(this.PacienteId, item.VacunaId);
-                    }
+                    this.AgregarVacunas((int)dt.Rows[0]["VacunaId"],dt.Rows[0]["NombresVacunas"].ToString());
                 }
-            }       
-            catch (Exception ex)
-            {
-                throw ex;
             }
             return data.Rows.Count > 0;
         }
@@ -154,5 +146,6 @@ namespace BLL
             ordenFinal = " Order by " + Orden;
             return conexion.ObtenerDatos("select " + Campos + "From Pacientes where " + Condicion + Orden);
         }
+        
     }
 }

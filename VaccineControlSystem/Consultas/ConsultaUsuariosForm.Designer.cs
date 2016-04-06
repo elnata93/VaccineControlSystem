@@ -87,7 +87,7 @@
             // 
             // BuscarButton
             // 
-            this.BuscarButton.Image = global::VaccineControlSystem.Properties.Resources._1459040486_Search;
+            this.BuscarButton.Image = global::VaccineControlSystem.Properties.Resources._1459753068_Search;
             this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BuscarButton.Location = new System.Drawing.Point(468, 19);
             this.BuscarButton.Name = "BuscarButton";
@@ -101,7 +101,6 @@
             // ConsultadataGridView
             // 
             this.ConsultadataGridView.AllowUserToAddRows = false;
-            this.ConsultadataGridView.AllowUserToDeleteRows = false;
             this.ConsultadataGridView.AllowUserToOrderColumns = true;
             this.ConsultadataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ConsultadataGridView.Location = new System.Drawing.Point(12, 66);
@@ -124,6 +123,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(576, 368);
             this.Controls.Add(this.Imprimir);
             this.Controls.Add(this.FiltrotextBox);
@@ -133,8 +133,11 @@
             this.Controls.Add(this.ConteotextBox);
             this.Controls.Add(this.BuscarButton);
             this.Controls.Add(this.ConsultadataGridView);
+            this.MaximizeBox = false;
             this.Name = "ConsultaUsuariosForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConsultaUsuariosForm";
+            this.Load += new System.EventHandler(this.ConsultaUsuariosForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ConsultadataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

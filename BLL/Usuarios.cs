@@ -140,10 +140,10 @@ namespace BLL
             return conexion.ObtenerDatos("Select " + Campos + " From Usuarios Where " + Condicion + Orden);
         }
 
-        public bool Login(string nombre, string contrasena)
+        public bool Login(string nombre, int tipoUsuario,string contrasena)
         {
             DataTable data = new DataTable();
-            data = conexion.ObtenerDatos(String.Format("select  NombresUsuarios from Usuarios where NombresUsuarios = '{0}' and  Contrasena = '{1}'", nombre, contrasena));
+            data = conexion.ObtenerDatos(String.Format("select  NombresUsuarios from Usuarios where NombresUsuarios = '{0}' and TipoUsuarioId = {1} and  Contrasena = '{2}'", nombre, tipoUsuario, contrasena));
             if (data.Rows.Count > 0)
             {
                 return true;

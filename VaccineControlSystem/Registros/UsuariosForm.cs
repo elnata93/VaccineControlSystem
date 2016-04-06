@@ -44,6 +44,11 @@ namespace VaccineControlSystem.Registros
         {
             LlenarComboboxTipoUsuario();
             LlenarComboboxCiudad();
+
+            if (IdtextBox.TextLength > 0)
+                Eliminarbutton.Enabled = true;
+            else
+                Eliminarbutton.Enabled = false;
         }
 
         private void TryParse()
@@ -124,6 +129,9 @@ namespace VaccineControlSystem.Registros
         
         private void LlenarDatos()
         {
+            int id = 0;
+            int.TryParse(IdtextBox.Text, out id);
+            usuario.UsuarioId = id;
             usuario.NombreUsuario = NombreUsuariotextBox.Text;
             usuario.Nombres = NombretextBox.Text;
             usuario.Apellidos = ApellidotextBox.Text;
@@ -180,7 +188,7 @@ namespace VaccineControlSystem.Registros
             }else
             if (IdtextBox.TextLength > 0)
             {
-                usuario.UsuarioId = int.Parse(IdtextBox.Text);
+                LlenarDatos();
 
                 if (usuario.Eliminar())
                 {

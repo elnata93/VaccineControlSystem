@@ -57,6 +57,9 @@ namespace VaccineControlSystem.Registros
 
         public void LlenarDatos()
         {
+            int id = 0;
+            int.TryParse(IdtextBox.Text, out id);
+            ciudad.CiudadId = id;
             ciudad.Descripcion = DescripciontextBox.Text;
         }
 
@@ -105,7 +108,7 @@ namespace VaccineControlSystem.Registros
             else
             if (IdtextBox.TextLength > 0)
             {
-                ciudad.CiudadId = int.Parse(IdtextBox.Text);
+                LlenarDatos();
 
                 if (ciudad.Eliminar())
                 {
@@ -133,6 +136,15 @@ namespace VaccineControlSystem.Registros
                 e.Handled = false;
             else
                 e.Handled = true;
+        }
+
+        private void CiudadesForm_Load(object sender, EventArgs e)
+        {
+            if ((IdtextBox.Text != ""))
+
+                Eliminarbutton.Enabled = true;
+            else
+                Eliminarbutton.Enabled = false;
         }
     }
 }

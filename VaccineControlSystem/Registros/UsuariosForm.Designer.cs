@@ -290,11 +290,11 @@
             // 
             // Buscarbutton
             // 
-            this.Buscarbutton.Image = global::VaccineControlSystem.Properties.Resources._1457049638_Search;
+            this.Buscarbutton.Image = global::VaccineControlSystem.Properties.Resources._1459753068_Search;
             this.Buscarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Buscarbutton.Location = new System.Drawing.Point(242, 12);
+            this.Buscarbutton.Location = new System.Drawing.Point(254, 30);
             this.Buscarbutton.Name = "Buscarbutton";
-            this.Buscarbutton.Size = new System.Drawing.Size(62, 65);
+            this.Buscarbutton.Size = new System.Drawing.Size(49, 47);
             this.Buscarbutton.TabIndex = 14;
             this.Buscarbutton.Text = "Buscar";
             this.Buscarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -304,11 +304,11 @@
             // Eliminarbutton
             // 
             this.Eliminarbutton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.Eliminarbutton.Image = global::VaccineControlSystem.Properties.Resources._1456880026_Delete;
+            this.Eliminarbutton.Image = global::VaccineControlSystem.Properties.Resources._1459753062_Delete;
             this.Eliminarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Eliminarbutton.Location = new System.Drawing.Point(390, 414);
+            this.Eliminarbutton.Location = new System.Drawing.Point(390, 429);
             this.Eliminarbutton.Name = "Eliminarbutton";
-            this.Eliminarbutton.Size = new System.Drawing.Size(62, 65);
+            this.Eliminarbutton.Size = new System.Drawing.Size(54, 50);
             this.Eliminarbutton.TabIndex = 13;
             this.Eliminarbutton.Text = "Eliminar";
             this.Eliminarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -318,11 +318,11 @@
             // Guardarbutton
             // 
             this.Guardarbutton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.Guardarbutton.Image = global::VaccineControlSystem.Properties.Resources._1456869956_Save;
+            this.Guardarbutton.Image = global::VaccineControlSystem.Properties.Resources._1459753117_Save;
             this.Guardarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Guardarbutton.Location = new System.Drawing.Point(283, 414);
+            this.Guardarbutton.Location = new System.Drawing.Point(283, 429);
             this.Guardarbutton.Name = "Guardarbutton";
-            this.Guardarbutton.Size = new System.Drawing.Size(62, 65);
+            this.Guardarbutton.Size = new System.Drawing.Size(53, 50);
             this.Guardarbutton.TabIndex = 12;
             this.Guardarbutton.Text = "Guardar";
             this.Guardarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -332,11 +332,11 @@
             // Nuevobutton
             // 
             this.Nuevobutton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.Nuevobutton.Image = global::VaccineControlSystem.Properties.Resources._1456869972_Add;
+            this.Nuevobutton.Image = global::VaccineControlSystem.Properties.Resources._1459753052_Add;
             this.Nuevobutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Nuevobutton.Location = new System.Drawing.Point(171, 414);
+            this.Nuevobutton.Location = new System.Drawing.Point(171, 429);
             this.Nuevobutton.Name = "Nuevobutton";
-            this.Nuevobutton.Size = new System.Drawing.Size(62, 65);
+            this.Nuevobutton.Size = new System.Drawing.Size(55, 50);
             this.Nuevobutton.TabIndex = 11;
             this.Nuevobutton.Text = "Nuevo";
             this.Nuevobutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;

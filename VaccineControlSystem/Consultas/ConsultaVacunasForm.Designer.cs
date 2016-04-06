@@ -55,6 +55,7 @@
             this.FiltrotextBox.Name = "FiltrotextBox";
             this.FiltrotextBox.Size = new System.Drawing.Size(226, 20);
             this.FiltrotextBox.TabIndex = 40;
+            this.FiltrotextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FiltrotextBox_KeyPress);
             // 
             // label2
             // 
@@ -97,7 +98,6 @@
             // ConsultadataGridView
             // 
             this.ConsultadataGridView.AllowUserToAddRows = false;
-            this.ConsultadataGridView.AllowUserToDeleteRows = false;
             this.ConsultadataGridView.AllowUserToOrderColumns = true;
             this.ConsultadataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ConsultadataGridView.Location = new System.Drawing.Point(12, 59);
@@ -108,7 +108,7 @@
             // 
             // BuscarButton
             // 
-            this.BuscarButton.Image = global::VaccineControlSystem.Properties.Resources._1459040486_Search;
+            this.BuscarButton.Image = global::VaccineControlSystem.Properties.Resources._1459753068_Search;
             this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BuscarButton.Location = new System.Drawing.Point(468, 12);
             this.BuscarButton.Name = "BuscarButton";
@@ -123,6 +123,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(575, 365);
             this.Controls.Add(this.Imprimir);
             this.Controls.Add(this.FiltrotextBox);
@@ -132,8 +133,11 @@
             this.Controls.Add(this.ConteotextBox);
             this.Controls.Add(this.BuscarButton);
             this.Controls.Add(this.ConsultadataGridView);
+            this.MaximizeBox = false;
             this.Name = "ConsultaVacunasForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConsultaVacunasForm";
+            this.Load += new System.EventHandler(this.ConsultaVacunasForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ConsultadataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

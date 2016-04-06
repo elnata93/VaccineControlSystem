@@ -61,6 +61,9 @@ namespace VaccineControlSystem.Registros
 
         public void LlenarDatos()
         {
+            int id = 0;
+            int.TryParse(IdtextBox.Text, out id);
+            vacuna.VacunaId = id;
             vacuna.NombresVacunas = NombreVacunatextBox.Text;
         }
 
@@ -109,7 +112,7 @@ namespace VaccineControlSystem.Registros
                 else
                 if (IdtextBox.TextLength > 0)
                 {
-                    vacuna.VacunaId = int.Parse(IdtextBox.Text);
+                    LlenarDatos();
 
                     if (vacuna.Eliminar())
                     {
@@ -139,6 +142,13 @@ namespace VaccineControlSystem.Registros
                 e.Handled = true;
         }
 
+        private void VacunasForm_Load(object sender, EventArgs e)
+        {
+            if ((IdtextBox.Text != ""))
+                Eliminarbutton.Enabled = true;
+            else
+                Eliminarbutton.Enabled = false;
+        }
     }
 }
 

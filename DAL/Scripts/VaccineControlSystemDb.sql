@@ -1,6 +1,6 @@
 create database VaccineControlSystem;
 use VaccineControlSystem;
-
+select * from PacientesVacunas
 create table TiposUsuarios(TipoUsuarioId int primary key identity(1,1),
 Descripcion varchar(20)
 );
@@ -27,32 +27,34 @@ create table Pacientes(PacienteId int primary key identity(1,1),
 Nombres varchar(30),
 Apellidos varchar(30),
 Edad int,
-Sexo bit,
+Sexo int,
 Direccion varchar(100),
 Telefono varchar(15),
-EsUnica bit,
-VacunaId int references Vacunas(VacunaId)
+EsUnica int
 );
 go
 create table Vacunas(VacunaId int primary key identity(1,1),
-NombresVacunas varchar(50),
-
+NombresVacunas varchar(40),
 );
 go
 create table PacientesVacunas(PacienteVacunaId int primary key identity(1,1),
 PacienteId int,
-VacunaId int,
-Nombres varchar(50)
+NombrePaciente varchar(30),
+VacunaId int references Vacunas(VacunaId),
+NombresVacunas varchar(40)
 );
 go
 create table HistorialVacunas(HistorialVacunaId int primary key identity(1,1),
 CentroSalud varchar(50),
 Provincia varchar(50),
 Municipio varchar(50),
-PacienteId int,
-PrimeraDosis date,
-SegundaDosis date,
-TerceraDosis date,
-PrimerRefuerzo date,
-SegundoRefuerzo date
+FechaHistorial datetime
+);
+
+create table HistorialVacunasFecha(HistorialFechaId int primary key identity(1,1),
+Paciente varchar(30),
+HistorialVacunaId int references HistorialVacunas(HistorialVacunaId),
+NombresVacunas varchar(40),
+FechaVacuna datetime,
+Dosis varchar(20)
 );

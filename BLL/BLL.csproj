@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Ciudades.cs" />
     <Compile Include="ClaseMaestra.cs" />
+    <Compile Include="Historial.cs" />
     <Compile Include="Pacientes.cs" />
     <Compile Include="PacientesVacunas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
