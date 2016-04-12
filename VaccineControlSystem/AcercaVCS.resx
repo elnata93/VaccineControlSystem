@@ -117,4 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>Este sistema tiene por objetivo llevar el control total de las vacunas que se les aplican a cada paciente y por consiguiente tener un mejor funcionamiento en el proceso de vacunación y poder llevar un mejor control de los registro de cada paciente.</value>
+  </data>
 </root>

@@ -64,7 +64,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(String.Format("Delete from Vacunas where VacunaId = {0} ", this.VacunaId));
+                retorno = conexion.Ejecutar(String.Format("Delete from Vacunas where VacunaId = {0} " + "delete from PacientesVacunas where VacunaId={0} ", this.VacunaId));
             }
             catch (Exception ex)
             {
@@ -100,22 +100,5 @@ namespace BLL
                 ordenFinal = "Order by " + Orden;
             return conexion.ObtenerDatos("Select " + Campos + " From Vacunas where " + Condicion + Orden);
         }
-
-        //public bool Existe(int id)
-        //{
-        //    using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["VacunaId"].ToString()))
-        //    {
-        //        string query = "SELECT COUNT(*) FROM Vacunas WHERE VacunaId=@Id";
-        //        SqlCommand cmd = new SqlCommand(query, conn);
-        //        cmd.Parameters.AddWithValue("Id", id);
-        //        conn.Open();
-        //
-        //        int count = Convert.ToInt32(cmd.ExecuteScalar());
-        //        if (count == 0)
-        //            return false;
-        //        else
-        //            return true;
-        //    }
-        //}
     }
 }

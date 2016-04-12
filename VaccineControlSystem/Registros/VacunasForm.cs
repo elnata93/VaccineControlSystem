@@ -45,6 +45,8 @@ namespace VaccineControlSystem.Registros
                     LlenarCampos();
                 }
             }
+            Eliminarbutton.Enabled = true;
+
             
         }
 
@@ -52,6 +54,7 @@ namespace VaccineControlSystem.Registros
         {
             IdtextBox.Clear();
             NombreVacunatextBox.Clear();
+            Eliminarbutton.Enabled = false;
         }
 
         private void Nuevobutton_Click(object sender, EventArgs e)

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistorialForm));
             this.Nuevobutton = new System.Windows.Forms.Button();
             this.Guardarbutton = new System.Windows.Forms.Button();
@@ -49,9 +50,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.FechaVacunadateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.HistorialVacunadataGridView = new System.Windows.Forms.DataGridView();
-            this.PacienteId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HistorialVacunaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PacienteVacunaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VacunaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombresVacunas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dosis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaVacuna = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,7 +59,9 @@
             this.VacunaPacientecomboBox = new System.Windows.Forms.ComboBox();
             this.FechaHistorialdateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
+            this.HistorialPacienteerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.HistorialVacunadataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HistorialPacienteerrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // Nuevobutton
@@ -79,7 +81,7 @@
             // 
             this.Guardarbutton.Image = global::VaccineControlSystem.Properties.Resources._1459753117_Save;
             this.Guardarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Guardarbutton.Location = new System.Drawing.Point(324, 521);
+            this.Guardarbutton.Location = new System.Drawing.Point(275, 521);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(55, 50);
             this.Guardarbutton.TabIndex = 11;
@@ -92,7 +94,7 @@
             // 
             this.Eliminarbutton.Image = global::VaccineControlSystem.Properties.Resources._1459753062_Delete;
             this.Eliminarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Eliminarbutton.Location = new System.Drawing.Point(481, 521);
+            this.Eliminarbutton.Location = new System.Drawing.Point(394, 521);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(51, 50);
             this.Eliminarbutton.TabIndex = 12;
@@ -164,9 +166,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(9, 263);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 13);
+            this.label5.Size = new System.Drawing.Size(83, 13);
             this.label5.TabIndex = 9;
-            this.label5.Text = "Paciente:";
+            this.label5.Text = "ID del Paciente:";
             // 
             // label6
             // 
@@ -182,7 +184,7 @@
             this.CentroSaludtextBox.Location = new System.Drawing.Point(101, 130);
             this.CentroSaludtextBox.MaxLength = 50;
             this.CentroSaludtextBox.Name = "CentroSaludtextBox";
-            this.CentroSaludtextBox.Size = new System.Drawing.Size(580, 20);
+            this.CentroSaludtextBox.Size = new System.Drawing.Size(532, 20);
             this.CentroSaludtextBox.TabIndex = 2;
             this.CentroSaludtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CentroSaludtextBox_KeyPress);
             // 
@@ -191,7 +193,7 @@
             this.ProvinciatextBox.Location = new System.Drawing.Point(101, 172);
             this.ProvinciatextBox.MaxLength = 50;
             this.ProvinciatextBox.Name = "ProvinciatextBox";
-            this.ProvinciatextBox.Size = new System.Drawing.Size(580, 20);
+            this.ProvinciatextBox.Size = new System.Drawing.Size(532, 20);
             this.ProvinciatextBox.TabIndex = 3;
             this.ProvinciatextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ProvinciatextBox_KeyPress);
             // 
@@ -200,12 +202,13 @@
             this.MunicipiotextBox.Location = new System.Drawing.Point(101, 214);
             this.MunicipiotextBox.MaxLength = 50;
             this.MunicipiotextBox.Name = "MunicipiotextBox";
-            this.MunicipiotextBox.Size = new System.Drawing.Size(580, 20);
+            this.MunicipiotextBox.Size = new System.Drawing.Size(532, 20);
             this.MunicipiotextBox.TabIndex = 4;
             this.MunicipiotextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MunicipiotextBox_KeyPress);
             // 
             // PacientescomboBox
             // 
+            this.PacientescomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PacientescomboBox.FormattingEnabled = true;
             this.PacientescomboBox.Location = new System.Drawing.Point(101, 256);
             this.PacientescomboBox.Name = "PacientescomboBox";
@@ -214,6 +217,7 @@
             // 
             // DosisvacunacomboBox
             // 
+            this.DosisvacunacomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DosisvacunacomboBox.FormattingEnabled = true;
             this.DosisvacunacomboBox.Items.AddRange(new object[] {
             "Primera Dosis",
@@ -228,12 +232,13 @@
             // 
             // Addbutton
             // 
-            this.Addbutton.Location = new System.Drawing.Point(622, 300);
+            this.Addbutton.Location = new System.Drawing.Point(538, 300);
             this.Addbutton.Name = "Addbutton";
-            this.Addbutton.Size = new System.Drawing.Size(59, 23);
+            this.Addbutton.Size = new System.Drawing.Size(95, 23);
             this.Addbutton.TabIndex = 9;
             this.Addbutton.Text = "Add";
             this.Addbutton.UseVisualStyleBackColor = true;
+            this.Addbutton.Click += new System.EventHandler(this.Addbutton_Click);
             // 
             // label7
             // 
@@ -246,9 +251,10 @@
             // 
             // FechaVacunadateTimePicker
             // 
+            this.FechaVacunadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.FechaVacunadateTimePicker.Location = new System.Drawing.Point(419, 303);
             this.FechaVacunadateTimePicker.Name = "FechaVacunadateTimePicker";
-            this.FechaVacunadateTimePicker.Size = new System.Drawing.Size(197, 20);
+            this.FechaVacunadateTimePicker.Size = new System.Drawing.Size(102, 20);
             this.FechaVacunadateTimePicker.TabIndex = 7;
             // 
             // HistorialVacunadataGridView
@@ -257,35 +263,28 @@
             this.HistorialVacunadataGridView.AllowUserToOrderColumns = true;
             this.HistorialVacunadataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.HistorialVacunadataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PacienteId,
-            this.Nombres,
-            this.HistorialVacunaId,
+            this.PacienteVacunaId,
+            this.VacunaId,
             this.NombresVacunas,
             this.Dosis,
             this.FechaVacuna});
-            this.HistorialVacunadataGridView.Location = new System.Drawing.Point(12, 353);
+            this.HistorialVacunadataGridView.Location = new System.Drawing.Point(12, 354);
             this.HistorialVacunadataGridView.Name = "HistorialVacunadataGridView";
             this.HistorialVacunadataGridView.ReadOnly = true;
-            this.HistorialVacunadataGridView.Size = new System.Drawing.Size(669, 151);
+            this.HistorialVacunadataGridView.Size = new System.Drawing.Size(621, 151);
             this.HistorialVacunadataGridView.TabIndex = 28;
             // 
-            // PacienteId
+            // PacienteVacunaId
             // 
-            this.PacienteId.HeaderText = "PacienteId";
-            this.PacienteId.Name = "PacienteId";
-            this.PacienteId.ReadOnly = true;
+            this.PacienteVacunaId.HeaderText = "PacienteVacunaId";
+            this.PacienteVacunaId.Name = "PacienteVacunaId";
+            this.PacienteVacunaId.ReadOnly = true;
             // 
-            // Nombres
+            // VacunaId
             // 
-            this.Nombres.HeaderText = "Nombres";
-            this.Nombres.Name = "Nombres";
-            this.Nombres.ReadOnly = true;
-            // 
-            // HistorialVacunaId
-            // 
-            this.HistorialVacunaId.HeaderText = "HistorialVacunaId";
-            this.HistorialVacunaId.Name = "HistorialVacunaId";
-            this.HistorialVacunaId.ReadOnly = true;
+            this.VacunaId.HeaderText = "VacunaId";
+            this.VacunaId.Name = "VacunaId";
+            this.VacunaId.ReadOnly = true;
             // 
             // NombresVacunas
             // 
@@ -301,6 +300,7 @@
             // 
             // FechaVacuna
             // 
+            this.FechaVacuna.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.FechaVacuna.HeaderText = "FechaVacuna";
             this.FechaVacuna.Name = "FechaVacuna";
             this.FechaVacuna.ReadOnly = true;
@@ -316,17 +316,20 @@
             // 
             // VacunaPacientecomboBox
             // 
+            this.VacunaPacientecomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.VacunaPacientecomboBox.FormattingEnabled = true;
             this.VacunaPacientecomboBox.Location = new System.Drawing.Point(419, 256);
             this.VacunaPacientecomboBox.Name = "VacunaPacientecomboBox";
-            this.VacunaPacientecomboBox.Size = new System.Drawing.Size(262, 21);
+            this.VacunaPacientecomboBox.Size = new System.Drawing.Size(214, 21);
             this.VacunaPacientecomboBox.TabIndex = 6;
             // 
             // FechaHistorialdateTimePicker
             // 
-            this.FechaHistorialdateTimePicker.Location = new System.Drawing.Point(481, 88);
+            this.FechaHistorialdateTimePicker.CustomFormat = "yyyy-MM-dd";
+            this.FechaHistorialdateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.FechaHistorialdateTimePicker.Location = new System.Drawing.Point(538, 84);
             this.FechaHistorialdateTimePicker.Name = "FechaHistorialdateTimePicker";
-            this.FechaHistorialdateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.FechaHistorialdateTimePicker.Size = new System.Drawing.Size(95, 20);
             this.FechaHistorialdateTimePicker.TabIndex = 14;
             // 
             // label9
@@ -339,12 +342,16 @@
             this.label9.TabIndex = 30;
             this.label9.Text = "Historial del Paciente";
             // 
+            // HistorialPacienteerrorProvider
+            // 
+            this.HistorialPacienteerrorProvider.ContainerControl = this;
+            // 
             // HistorialForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(693, 583);
+            this.ClientSize = new System.Drawing.Size(645, 583);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.FechaHistorialdateTimePicker);
             this.Controls.Add(this.VacunaPacientecomboBox);
@@ -376,6 +383,7 @@
             this.Text = "Historial de Pacientes";
             this.Load += new System.EventHandler(this.HistorialForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.HistorialVacunadataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HistorialPacienteerrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -406,12 +414,12 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox VacunaPacientecomboBox;
         private System.Windows.Forms.DateTimePicker FechaHistorialdateTimePicker;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombres;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ErrorProvider HistorialPacienteerrorProvider;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaVacuna;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dosis;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombresVacunas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HistorialVacunaId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PacienteId;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VacunaId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PacienteVacunaId;
     }
 }

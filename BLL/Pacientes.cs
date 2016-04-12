@@ -84,7 +84,7 @@ namespace BLL
                     this.Nombres, this.Apellidos,this.Edad,this.Sexo,this.Direccion, this.Telefono,this.EsUnica,this.PacienteId ));
                 if (retorno)
                 {
-                    conexion.Ejecutar(String.Format("delete from PacientesVacunas where PacienteId = " + this.PacienteId));
+                    conexion.Ejecutar(String.Format("delete from PacientesVacunas where PacienteId = {0} ", this.PacienteId));
                     foreach (PacientesVacunas item in PacienteVacuna)
                     {
                         conexion.Ejecutar(String.Format("Insert Into PacientesVacunas(PacienteId,VacunaId,NombresVacunas) values({0},{1},'{2}') ", this.PacienteId,item.VacunaId,item.NombresVacunas));
@@ -144,8 +144,11 @@ namespace BLL
             string ordenFinal = "";
             if (!ordenFinal.Equals(""))
             ordenFinal = " Order by " + Orden;
-            return conexion.ObtenerDatos("select " + Campos + "From Pacientes where " + Condicion + Orden);
+            //return conexion.ObtenerDatos(" select " + Campos + " From Pacientes where " + Condicion + Orden);
+
+            return conexion.ObtenerDatos(" select p.PacienteId,p.Nombres,p.Apellidos,p.Edad,p.Sexo,p.Direccion,p.Telefono,p.EsUnica ,pv.PacienteVacunaId,pv.VacunaId,pv.NombresVacunas From Pacientes p inner join PacientesVacunas pv on p.PacienteId=pv.PacienteVacunaId where " + Condicion + Orden);
+
         }
-        
+
     }
 }

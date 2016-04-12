@@ -41,6 +41,9 @@ namespace VaccineControlSystem.Registros
                 {
                     LlenarCampos();
                 }
+                Buscarbutton.Enabled = false;
+                Guardarbutton.Text = "Modicar";
+                Eliminarbutton.Enabled = true;
             }
         }
 
@@ -48,6 +51,9 @@ namespace VaccineControlSystem.Registros
         {
             IdtextBox.Clear();
             DescripciontextBox.Clear();
+            Guardarbutton.Text = "Guardar";
+            Buscarbutton.Enabled = true;
+            Eliminarbutton.Enabled = false;
         }
 
         private void Nuevobutton_Click(object sender, EventArgs e)

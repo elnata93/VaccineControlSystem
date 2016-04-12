@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 using BLL;
 
 namespace VaccineControlSystem.Registros
@@ -137,7 +138,7 @@ namespace VaccineControlSystem.Registros
             usuario.Apellidos = ApellidotextBox.Text;
             usuario.Direccion = DirecciontextBox.Text;
             usuario.Telefono = TelefonomaskedTextBox.Text;
-            usuario.Email = EmailtextBox.Text;
+            usuario.Email = ValidaCorreo(EmailtextBox.Text).ToString();
             usuario.Contrasena = ContrasenatextBox.Text;
             usuario.TipoUsuarioId = TipoUsuariocomboBox.SelectedIndex;
             usuario.CiudadId = CiudadcomboBox.SelectedIndex;
@@ -209,6 +210,27 @@ namespace VaccineControlSystem.Registros
             if (ImagenopenFileDialog.FileName != null)
             {
                 ImagenpictureBox.ImageLocation = ImagenopenFileDialog.FileName;
+            }
+        }
+
+        private Boolean ValidaCorreo(String email)
+        {
+            String expresion;
+            expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(email, expresion))
+            {
+                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
             }
         }
 

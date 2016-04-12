@@ -31,7 +31,7 @@ namespace VaccineControlSystem
 
         private void ConsultaUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Consultas.ConsultaUsuariosForm consul = new Consultas.ConsultaUsuariosForm();
+            Consultas.ConsultaUsuarios consul = new Consultas.ConsultaUsuarios();
             consul.MdiParent = this;
             consul.Show();
         }
@@ -45,7 +45,7 @@ namespace VaccineControlSystem
 
         private void ciudadesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Consultas.ConsultaCiudadesForm ciudad = new Consultas.ConsultaCiudadesForm();
+            Consultas.ConsultaCiudades ciudad = new Consultas.ConsultaCiudades();
             ciudad.MdiParent = this;
             ciudad.Show();
         }
@@ -59,7 +59,7 @@ namespace VaccineControlSystem
 
         private void vacunaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Consultas.ConsultaVacunasForm vacuna = new Consultas.ConsultaVacunasForm();
+            Consultas.ConsultaVacunas vacuna = new Consultas.ConsultaVacunas();
             vacuna.MdiParent = this;
             vacuna.Show();
         }
@@ -74,7 +74,7 @@ namespace VaccineControlSystem
 
         private void pacientesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Consultas.ConsultaPacientesForm paciente = new Consultas.ConsultaPacientesForm();
+            Consultas.ConsultaPacientes paciente = new Consultas.ConsultaPacientes();
             paciente.MdiParent = this;
             paciente.Show();
         }
@@ -138,6 +138,13 @@ namespace VaccineControlSystem
             Registros.HistorialForm rhist = new Registros.HistorialForm();
             rhist.MdiParent = this;
             rhist.Show();
+        }
+
+        private void acercaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AcercaVCS acerca = new AcercaVCS();
+            acerca.MdiParent = this;
+            acerca.Show();
         }
     }
 }

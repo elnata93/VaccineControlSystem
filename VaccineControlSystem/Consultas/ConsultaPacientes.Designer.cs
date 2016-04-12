@@ -1,6 +1,6 @@
 ﻿namespace VaccineControlSystem.Consultas
 {
-    partial class ConsultaPacientesForm
+    partial class ConsultaPacientes
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultaPacientes));
             this.Imprimir = new System.Windows.Forms.Button();
             this.FiltrotextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -119,7 +120,7 @@
             this.BuscarButton.UseVisualStyleBackColor = true;
             this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
             // 
-            // ConsultaPacientesForm
+            // ConsultaPacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -133,10 +134,11 @@
             this.Controls.Add(this.ConteotextBox);
             this.Controls.Add(this.BuscarButton);
             this.Controls.Add(this.ConsultadataGridView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "ConsultaPacientesForm";
+            this.Name = "ConsultaPacientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ConsultaPacientesForm";
+            this.Text = "Consulta Pacientes";
             this.Load += new System.EventHandler(this.ConsultaPacientesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ConsultadataGridView)).EndInit();
             this.ResumeLayout(false);

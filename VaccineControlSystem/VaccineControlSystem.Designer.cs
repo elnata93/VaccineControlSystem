@@ -69,6 +69,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.menuStrip1.Size = new System.Drawing.Size(1026, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
@@ -165,35 +166,35 @@
             // usuariosConsultasToolStripMenuItem
             // 
             this.usuariosConsultasToolStripMenuItem.Name = "usuariosConsultasToolStripMenuItem";
-            this.usuariosConsultasToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.usuariosConsultasToolStripMenuItem.Size = new System.Drawing.Size(140, 24);
             this.usuariosConsultasToolStripMenuItem.Text = "&Usuarios";
             this.usuariosConsultasToolStripMenuItem.Click += new System.EventHandler(this.ConsultaUsuariosToolStripMenuItem_Click);
             // 
             // ciudadesConsultasToolStripMenuItem1
             // 
             this.ciudadesConsultasToolStripMenuItem1.Name = "ciudadesConsultasToolStripMenuItem1";
-            this.ciudadesConsultasToolStripMenuItem1.Size = new System.Drawing.Size(152, 24);
+            this.ciudadesConsultasToolStripMenuItem1.Size = new System.Drawing.Size(140, 24);
             this.ciudadesConsultasToolStripMenuItem1.Text = "&Ciudades";
             this.ciudadesConsultasToolStripMenuItem1.Click += new System.EventHandler(this.ciudadesToolStripMenuItem1_Click);
             // 
             // vacunaConsultasToolStripMenuItem
             // 
             this.vacunaConsultasToolStripMenuItem.Name = "vacunaConsultasToolStripMenuItem";
-            this.vacunaConsultasToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.vacunaConsultasToolStripMenuItem.Size = new System.Drawing.Size(140, 24);
             this.vacunaConsultasToolStripMenuItem.Text = "&Vacunas";
             this.vacunaConsultasToolStripMenuItem.Click += new System.EventHandler(this.vacunaToolStripMenuItem_Click);
             // 
             // pacientesConsultasToolStripMenuItem1
             // 
             this.pacientesConsultasToolStripMenuItem1.Name = "pacientesConsultasToolStripMenuItem1";
-            this.pacientesConsultasToolStripMenuItem1.Size = new System.Drawing.Size(152, 24);
+            this.pacientesConsultasToolStripMenuItem1.Size = new System.Drawing.Size(140, 24);
             this.pacientesConsultasToolStripMenuItem1.Text = "&Pacientes";
             this.pacientesConsultasToolStripMenuItem1.Click += new System.EventHandler(this.pacientesToolStripMenuItem1_Click);
             // 
             // historialConsultasToolStripMenuItem1
             // 
             this.historialConsultasToolStripMenuItem1.Name = "historialConsultasToolStripMenuItem1";
-            this.historialConsultasToolStripMenuItem1.Size = new System.Drawing.Size(152, 24);
+            this.historialConsultasToolStripMenuItem1.Size = new System.Drawing.Size(140, 24);
             this.historialConsultasToolStripMenuItem1.Text = "Historial";
             this.historialConsultasToolStripMenuItem1.Click += new System.EventHandler(this.historialConsultasToolStripMenuItem1_Click);
             // 
@@ -210,6 +211,7 @@
             this.acercaToolStripMenuItem.Name = "acercaToolStripMenuItem";
             this.acercaToolStripMenuItem.Size = new System.Drawing.Size(174, 24);
             this.acercaToolStripMenuItem.Text = "Acerca de VCS";
+            this.acercaToolStripMenuItem.Click += new System.EventHandler(this.acercaToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 

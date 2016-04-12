@@ -54,7 +54,7 @@ namespace VaccineControlSystem.Registros
                 }else
                 if (paciente.Sexo == 1)
                 {
-                    FemeninoradioButton.Checked = false;
+                    FemeninoradioButton.Checked = true;
                 }
                 DirecciontextBox.Text = paciente.Direccion;
                 TelefonomaskedTextBox.Text = Convert.ToString(paciente.Telefono);
@@ -64,7 +64,7 @@ namespace VaccineControlSystem.Registros
                 }else
                 if (paciente.EsUnica == 1)
                 {
-                    NoradioButton.Checked = false;
+                    NoradioButton.Checked = true;
                 }
                 foreach (var item in paciente.PacienteVacuna)
                 {
@@ -72,6 +72,7 @@ namespace VaccineControlSystem.Registros
                     VacunadataGridView.AutoGenerateColumns = false;
                 }
             }
+            Eliminarbutton.Enabled = false;
         }
 
        
@@ -93,6 +94,7 @@ namespace VaccineControlSystem.Registros
                     LlenarCampos();
                 }
             }
+            Eliminarbutton.Enabled = true;
         }
 
         private void Limpiar()
@@ -110,6 +112,7 @@ namespace VaccineControlSystem.Registros
             PacienteerrorProvider.Clear();
             SiradioButton.Checked = false;
             NoradioButton.Checked = false;
+            Eliminarbutton.Enabled = false;
 
         }
         private void Nuevobutton_Click(object sender, EventArgs e)
@@ -178,9 +181,9 @@ namespace VaccineControlSystem.Registros
             }
             else
             {
+                LlenarDatos();
                 if (IdtextBox.TextLength > 0)
                 {
-                    LlenarDatos();
                     if (paciente.Editar())
                     {
                         MessageBox.Show("Pacientes Editado");
@@ -198,9 +201,6 @@ namespace VaccineControlSystem.Registros
         {
             if (IdtextBox.TextLength > 0)
             {
-
-                LlenarDatos();
-
                 if (paciente.Eliminar())
                 {
                     MessageBox.Show("Paciente Eliminado");

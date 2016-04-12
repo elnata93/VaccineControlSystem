@@ -50,11 +50,12 @@ Provincia varchar(50),
 Municipio varchar(50),
 FechaHistorial datetime
 );
-
-create table HistorialVacunasFecha(HistorialFechaId int primary key identity(1,1),
-Paciente varchar(30),
-HistorialVacunaId int references HistorialVacunas(HistorialVacunaId),
+go
+create table HistorialDetalle(HistorialDetalleId int primary key identity(1,1),
+HistorialVacunaId int,
+PacienteVacunaId int references PacientesVacunas(PacienteVacunaId),
+VacunaId int,
 NombresVacunas varchar(40),
-FechaVacuna datetime,
-Dosis varchar(20)
+Dosis varchar(20),
+FechaVacuna datetime
 );

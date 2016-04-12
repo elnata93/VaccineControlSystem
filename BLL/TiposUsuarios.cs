@@ -60,7 +60,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(String.Format("delete from TiposUsuarios where TipoUsuarioId = {0} ", this.Descripcion));
+                retorno = conexion.Ejecutar(String.Format("delete from TiposUsuarios where TipoUsuarioId = {0} " , this.TipoUsuarioId));
             }
             catch (Exception ex)
             {

@@ -11,16 +11,16 @@ using BLL;
 
 namespace VaccineControlSystem.Consultas
 {
-    public partial class ConsultaVacunasForm : Form
+    public partial class ConsultaUsuarios : Form
     {
-        public ConsultaVacunasForm()
+        public ConsultaUsuarios()
         {
             InitializeComponent();
         }
 
         private void BuscarButton_Click(object sender, EventArgs e)
         {
-            Vacunas vacuna = new Vacunas();
+            Usuarios  user = new Usuarios();
             string filtro = "1=1";
 
             if (FiltrotextBox.Text.Length > 0)
@@ -28,26 +28,28 @@ namespace VaccineControlSystem.Consultas
                 filtro = CamposcomboBox.Text + " like '%" + FiltrotextBox.Text + "%'";
             }
 
-            ConsultadataGridView.DataSource = vacuna.Listado("VacunaId,NombresVacunas", filtro, "");
+            ConsultadataGridView.DataSource = user.Listado("UsuarioId,NombresUsuarios,Nombres,Apellidos,Direccion,Telefono,Email,Contrasena,TipoUsuarioId,CiudadId,Fecha,Imagen", filtro, "");
 
             ConteotextBox.Text = ConsultadataGridView.RowCount.ToString();
         }
+        //private int UsuarioId = 0;
+        //private string Descripcion = "";
 
         private void Imprimir_Click(object sender, EventArgs e)
         {
-            Report.VaccineReportViewer viewer = new Report.VaccineReportViewer();
+            Report.VaccineReportViewer viewer =  new Report.VaccineReportViewer();
             DataTable dt = new DataTable();
 
             dt = (DataTable)ConsultadataGridView.DataSource;
-            dt.TableName = "Vacunas";
+            dt.TableName = "Usuarios";
 
-            viewer.reporte = "VacunasReport.rdlc";
+            viewer.reporte = "UsuariosReport.rdlc";
             viewer.data = dt;
 
             viewer.ShowDialog();
         }
 
-        private void ConsultaVacunasForm_Load(object sender, EventArgs e)
+        private void ConsultaUsuariosForm_Load(object sender, EventArgs e)
         {
 
         }

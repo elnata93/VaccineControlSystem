@@ -66,11 +66,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Consultas\ConsultaCiudadesForm.cs">
+    <Compile Include="AcercaVCS.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Consultas\ConsultaCiudadesForm.Designer.cs">
-      <DependentUpon>ConsultaCiudadesForm.cs</DependentUpon>
+    <Compile Include="AcercaVCS.Designer.cs">
+      <DependentUpon>AcercaVCS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaCiudades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaCiudades.Designer.cs">
+      <DependentUpon>ConsultaCiudades.cs</DependentUpon>
     </Compile>
     <Compile Include="Consultas\ConsultaHistorial.cs">
       <SubType>Form</SubType>
@@ -78,23 +84,23 @@
     <Compile Include="Consultas\ConsultaHistorial.Designer.cs">
       <DependentUpon>ConsultaHistorial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Consultas\ConsultaPacientesForm.cs">
+    <Compile Include="Consultas\ConsultaPacientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Consultas\ConsultaPacientesForm.Designer.cs">
-      <DependentUpon>ConsultaPacientesForm.cs</DependentUpon>
+    <Compile Include="Consultas\ConsultaPacientes.Designer.cs">
+      <DependentUpon>ConsultaPacientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Consultas\ConsultaUsuariosForm.cs">
+    <Compile Include="Consultas\ConsultaUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Consultas\ConsultaUsuariosForm.Designer.cs">
-      <DependentUpon>ConsultaUsuariosForm.cs</DependentUpon>
+    <Compile Include="Consultas\ConsultaUsuarios.Designer.cs">
+      <DependentUpon>ConsultaUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Consultas\ConsultaVacunasForm.cs">
+    <Compile Include="Consultas\ConsultaVacunas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Consultas\ConsultaVacunasForm.Designer.cs">
-      <DependentUpon>ConsultaVacunasForm.cs</DependentUpon>
+    <Compile Include="Consultas\ConsultaVacunas.Designer.cs">
+      <DependentUpon>ConsultaVacunas.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -151,20 +157,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VaccineControlSystemDbDataSet.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Consultas\ConsultaCiudadesForm.resx">
-      <DependentUpon>ConsultaCiudadesForm.cs</DependentUpon>
+    <EmbeddedResource Include="AcercaVCS.resx">
+      <DependentUpon>AcercaVCS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BackupReport\CiudadesReport.rdlc" />
+    <EmbeddedResource Include="BackupReport\PacientesReport.rdlc" />
+    <EmbeddedResource Include="BackupReport\UsuariosReport.rdlc" />
+    <EmbeddedResource Include="BackupReport\VacunasReport.rdlc" />
+    <EmbeddedResource Include="Consultas\ConsultaCiudades.resx">
+      <DependentUpon>ConsultaCiudades.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaHistorial.resx">
       <DependentUpon>ConsultaHistorial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Consultas\ConsultaPacientesForm.resx">
-      <DependentUpon>ConsultaPacientesForm.cs</DependentUpon>
+    <EmbeddedResource Include="Consultas\ConsultaPacientes.resx">
+      <DependentUpon>ConsultaPacientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Consultas\ConsultaUsuariosForm.resx">
-      <DependentUpon>ConsultaUsuariosForm.cs</DependentUpon>
+    <EmbeddedResource Include="Consultas\ConsultaUsuarios.resx">
+      <DependentUpon>ConsultaUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Consultas\ConsultaVacunasForm.resx">
-      <DependentUpon>ConsultaVacunasForm.cs</DependentUpon>
+    <EmbeddedResource Include="Consultas\ConsultaVacunas.resx">
+      <DependentUpon>ConsultaVacunas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -183,11 +196,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report\CiudadesReport.rdlc" />
     <EmbeddedResource Include="Report\PacientesReport.rdlc" />
-    <EmbeddedResource Include="Report\VacunasReport.rdlc" />
     <EmbeddedResource Include="Report\UsuariosReport.rdlc" />
     <EmbeddedResource Include="Report\VaccineReportViewer.resx">
       <DependentUpon>VaccineReportViewer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\VacunasReport.rdlc" />
     <EmbeddedResource Include="VaccineControlSystem.resx">
       <DependentUpon>VaccineControlSystem.cs</DependentUpon>
     </EmbeddedResource>

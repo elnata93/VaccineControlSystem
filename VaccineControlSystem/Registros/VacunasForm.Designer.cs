@@ -57,9 +57,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 179);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 13);
+            this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 28;
-            this.label2.Text = "Descripción:";
+            this.label2.Text = "Nombre:";
             // 
             // label1
             // 
@@ -166,7 +166,7 @@
             this.MaximizeBox = false;
             this.Name = "VacunasForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "VacunasForm";
+            this.Text = "Vacunas";
             this.Load += new System.EventHandler(this.VacunasForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.VacunaerrorProvider)).EndInit();
             this.ResumeLayout(false);

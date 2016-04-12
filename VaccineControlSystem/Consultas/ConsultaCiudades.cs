@@ -11,9 +11,9 @@ using BLL;
 
 namespace VaccineControlSystem.Consultas
 {
-    public partial class ConsultaCiudadesForm : Form
+    public partial class ConsultaCiudades : Form
     {
-        public ConsultaCiudadesForm()
+        public ConsultaCiudades()
         {
             InitializeComponent();
         }

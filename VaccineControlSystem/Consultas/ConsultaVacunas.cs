@@ -11,16 +11,16 @@ using BLL;
 
 namespace VaccineControlSystem.Consultas
 {
-    public partial class ConsultaPacientesForm : Form
+    public partial class ConsultaVacunas : Form
     {
-        public ConsultaPacientesForm()
+        public ConsultaVacunas()
         {
             InitializeComponent();
         }
 
         private void BuscarButton_Click(object sender, EventArgs e)
         {
-            Pacientes Paciente = new Pacientes();
+            Vacunas vacuna = new Vacunas();
             string filtro = "1=1";
 
             if (FiltrotextBox.Text.Length > 0)
@@ -28,7 +28,7 @@ namespace VaccineControlSystem.Consultas
                 filtro = CamposcomboBox.Text + " like '%" + FiltrotextBox.Text + "%'";
             }
 
-            ConsultadataGridView.DataSource = Paciente.Listado("PacienteId,Nombres,Apllidos,Edad,Sexo,Direccion,Telefono,EsUnica,VacunaId", filtro, "");
+            ConsultadataGridView.DataSource = vacuna.Listado("VacunaId,NombresVacunas", filtro, "");
 
             ConteotextBox.Text = ConsultadataGridView.RowCount.ToString();
         }
@@ -39,15 +39,15 @@ namespace VaccineControlSystem.Consultas
             DataTable dt = new DataTable();
 
             dt = (DataTable)ConsultadataGridView.DataSource;
-            dt.TableName = "Pacientes";
+            dt.TableName = "Vacunas";
 
-            viewer.reporte = "PacientesReport.rdlc";
+            viewer.reporte = "VacunasReport.rdlc";
             viewer.data = dt;
 
             viewer.ShowDialog();
         }
 
-        private void ConsultaPacientesForm_Load(object sender, EventArgs e)
+        private void ConsultaVacunasForm_Load(object sender, EventArgs e)
         {
 
         }

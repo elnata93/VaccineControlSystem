@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultaHistorial));
             this.Imprimir = new System.Windows.Forms.Button();
             this.FiltrotextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -54,6 +55,7 @@
             this.FiltrotextBox.Name = "FiltrotextBox";
             this.FiltrotextBox.Size = new System.Drawing.Size(226, 20);
             this.FiltrotextBox.TabIndex = 56;
+            this.FiltrotextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FiltrotextBox_KeyPress);
             // 
             // label2
             // 
@@ -69,8 +71,8 @@
             this.CamposcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CamposcomboBox.FormattingEnabled = true;
             this.CamposcomboBox.Items.AddRange(new object[] {
-            "PacienteId",
-            "Nombres"});
+            "HistorialVacunaId",
+            "CentroSalud"});
             this.CamposcomboBox.Location = new System.Drawing.Point(97, 32);
             this.CamposcomboBox.Name = "CamposcomboBox";
             this.CamposcomboBox.Size = new System.Drawing.Size(121, 21);
@@ -115,6 +117,7 @@
             this.BuscarButton.Text = "Buscar";
             this.BuscarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BuscarButton.UseVisualStyleBackColor = true;
+            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
             // 
             // ConsultaHistorial
             // 
@@ -130,10 +133,11 @@
             this.Controls.Add(this.ConteotextBox);
             this.Controls.Add(this.BuscarButton);
             this.Controls.Add(this.ConsultadataGridView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "ConsultaHistorial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ConsultaHistorial";
+            this.Text = "Consulta Historial";
             ((System.ComponentModel.ISupportInitialize)(this.ConsultadataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
