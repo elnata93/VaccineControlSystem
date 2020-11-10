@@ -6,10 +6,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.91667in</Width>
+              <Width>1.28125in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.91667in</Width>
+              <Width>2.54167in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -25,9 +25,9 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Vacuna Id</Value>
+                              <Value>ID de Vacuna</Value>
                               <Style>
-                                <FontSize>14pt</FontSize>
+                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -60,7 +60,7 @@
                             <TextRun>
                               <Value>Nombres Vacunas</Value>
                               <Style>
-                                <FontSize>14pt</FontSize>
+                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -168,55 +168,19 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>Vacunas</DataSetName>
-        <Top>1.00917in</Top>
-        <Left>1.14458in</Left>
         <Height>0.5in</Height>
-        <Width>3.83333in</Width>
+        <Width>3.82292in</Width>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
-      <Textbox Name="Textbox7">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Reporte de Vacunas </Value>
-                <Style>
-                  <FontSize>20pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>0.35292in</Top>
-        <Height>0.40625in</Height>
-        <Width>6.5in</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
     </ReportItems>
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>6.5in</Width>
+  <Width>5.30208in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
@@ -231,7 +195,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>5d4d5cdf-e137-4e75-a601-15a01effcbd4</rd:DataSourceID>
+      <rd:DataSourceID>dcd2fba5-181c-4495-9135-6f43309cc460</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -261,5 +225,5 @@
     </DataSet>
   </DataSets>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>f451b3b9-2c47-44e1-8cff-5c09d3bf80d1</rd:ReportID>
+  <rd:ReportID>e9e4dc93-fd14-4bc4-80d6-3a27ed409ba7</rd:ReportID>
 </Report>

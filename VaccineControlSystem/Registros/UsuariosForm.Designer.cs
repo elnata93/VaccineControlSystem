@@ -140,6 +140,9 @@
             // 
             this.TipoUsuariocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TipoUsuariocomboBox.FormattingEnabled = true;
+            this.TipoUsuariocomboBox.Items.AddRange(new object[] {
+            "Administrador",
+            "Usuario"});
             this.TipoUsuariocomboBox.Location = new System.Drawing.Point(105, 341);
             this.TipoUsuariocomboBox.Name = "TipoUsuariocomboBox";
             this.TipoUsuariocomboBox.Size = new System.Drawing.Size(200, 21);

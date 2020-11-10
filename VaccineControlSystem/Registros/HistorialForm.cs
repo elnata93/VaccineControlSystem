@@ -31,13 +31,13 @@ namespace VaccineControlSystem.Registros
 
         private void LlenarComboboxPaciente()
         {
-            DataTable dt= new DataTable();
+            DataTable dt = new DataTable();
             dt = pVacuna.Listado("PacienteId", "0=0", "ORDER BY PacienteId");
             PacientescomboBox.DataSource = dt;
             PacientescomboBox.ValueMember = "PacienteId";
             PacientescomboBox.DisplayMember = "PacienteId";
         }
-        
+
         private void HabilitarButtonEliminar()
         {
             if (IdtextBox.Text != "")
@@ -80,7 +80,7 @@ namespace VaccineControlSystem.Registros
             {
                 HistorialPacienteerrorProvider.Clear();
             }
-            if(IdtextBox.Text.Length > 0)
+            if (IdtextBox.Text.Length > 0)
             {
                 if (historial.Buscar(int.Parse(IdtextBox.Text)))
                 {
@@ -121,9 +121,9 @@ namespace VaccineControlSystem.Registros
             historial.Municipio = MunicipiotextBox.Text;
             foreach (DataGridViewRow row in HistorialVacunadataGridView.Rows)
             {
-                historial.AgregarDosis((int)row.Cells["PacienteVacunaId"].Value, (int)row.Cells["VacunaId"].Value,row.Cells["NombresVacunas"].Value.ToString(),row.Cells["Dosis"].Value.ToString(), Convert.ToString(row.Cells["FechaVacuna"].Value).ToString());
+                historial.AgregarDosis((int)row.Cells["PacienteVacunaId"].Value, (int)row.Cells["VacunaId"].Value, row.Cells["NombresVacunas"].Value.ToString(), row.Cells["Dosis"].Value.ToString(), Convert.ToString(row.Cells["FechaVacuna"].Value).ToString());
             }
-            historial.FechaHistorial = FechaHistorialdateTimePicker.Text; 
+            historial.FechaHistorial = FechaHistorialdateTimePicker.Text;
         }
 
         private void Guardarbutton_Click(object sender, EventArgs e)
@@ -182,7 +182,7 @@ namespace VaccineControlSystem.Registros
 
         private void Addbutton_Click(object sender, EventArgs e)
         {
-            HistorialVacunadataGridView.Rows.Add(PacientescomboBox.SelectedValue, VacunaPacientecomboBox.SelectedValue,VacunaPacientecomboBox.Text, DosisvacunacomboBox.Text, FechaVacunadateTimePicker.Text);
+            HistorialVacunadataGridView.Rows.Add(PacientescomboBox.SelectedValue, VacunaPacientecomboBox.SelectedValue, VacunaPacientecomboBox.Text, DosisvacunacomboBox.Text, FechaVacunadateTimePicker.Text);
         }
 
         private void IdtextBox_KeyPress(object sender, KeyPressEventArgs e)

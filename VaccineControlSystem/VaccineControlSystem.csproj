@@ -1,18 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9B35DE40-E5CD-4938-BD48-C90862DCDC67}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>VaccineControlSystem</RootNamespace>
-    <AssemblyName>VaccineControlSystem</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,6 +16,20 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9B35DE40-E5CD-4938-BD48-C90862DCDC67}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VaccineControlSystem</RootNamespace>
+    <AssemblyName>VaccineControlSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -160,10 +163,6 @@
     <EmbeddedResource Include="AcercaVCS.resx">
       <DependentUpon>AcercaVCS.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BackupReport\CiudadesReport.rdlc" />
-    <EmbeddedResource Include="BackupReport\PacientesReport.rdlc" />
-    <EmbeddedResource Include="BackupReport\UsuariosReport.rdlc" />
-    <EmbeddedResource Include="BackupReport\VacunasReport.rdlc" />
     <EmbeddedResource Include="Consultas\ConsultaCiudades.resx">
       <DependentUpon>ConsultaCiudades.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,9 +183,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registros\CiudadesForm.resx">
       <DependentUpon>CiudadesForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Registros\HistorialForm.resx">
-      <DependentUpon>HistorialForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registros\PacientesForm.resx">
       <DependentUpon>PacientesForm.cs</DependentUpon>
@@ -252,15 +248,6 @@
     <None Include="Resources\1459753052_Add.png" />
     <None Include="Resources\1459753068_Search.png" />
     <None Include="Resources\1459040486_Search.png" />
-    <None Include="Resources\Search.png" />
-    <None Include="Resources\Health16-128.png" />
-    <None Include="Resources\Health16-48.png" />
-    <None Include="Resources\Login-Manager.png" />
-    <None Include="Resources\bigstock-Vaccine-in-vial-with-syringe-82276316.jpg" />
-    <None Include="Resources\1457049638_Search.png" />
-    <None Include="Resources\1456880026_Delete.png" />
-    <None Include="Resources\1456869956_Save.png" />
-    <None Include="Resources\1456869972_Add.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
@@ -281,20 +268,27 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DataBase\VaccineControlSystemDb.mdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="DataBase\VaccineControlSystemDb_log.ldf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <DependentUpon>VaccineControlSystemDb.mdf</DependentUpon>
-    </Content>
     <None Include="Resources\o_9f484807f4d727cd-3.png" />
     <None Include="Resources\medicine_jar.png" />
     <None Include="Resources\Order_online_offer_cart_shopping.png" />
     <None Include="Resources\o_eab4bbccb0a5c0a4-5.png" />
     <None Include="Resources\app_type_tourist_512px_GREY_converted.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataBase\VaccineControlSystemDb.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DataBase\VaccineControlSystemDb_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>VaccineControlSystemDb.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="'$(SQLDBExtensionsRefPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="'$(SQLDBExtensionsRefPath)' == ''" />
+  <PropertyGroup>
+    <SsdtUnitTestVersion>2.0</SsdtUnitTestVersion>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

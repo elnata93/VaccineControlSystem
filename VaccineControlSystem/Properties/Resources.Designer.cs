@@ -143,26 +143,6 @@ namespace VaccineControlSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bigstock_Vaccine_in_vial_with_syringe_82276316 {
-            get {
-                object obj = ResourceManager.GetObject("bigstock-Vaccine-in-vial-with-syringe-82276316", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Login_Manager {
-            get {
-                object obj = ResourceManager.GetObject("Login-Manager", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap medicine_jar {
             get {
                 object obj = ResourceManager.GetObject("medicine_jar", resourceCulture);
