@@ -26,9 +26,9 @@ namespace VaccineControlSystem.Report
             this.reportViewer1.Reset();
             this.reportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local;
 
-            this.reportViewer1.LocalReport.ReportPath = this.reporte;
+            this.reportViewer1.LocalReport.ReportPath = @"Report\" + this.reporte;
 
-            ReportDataSource source = new ReportDataSource(this.data.TableName, this.data);
+            ReportDataSource source = new ReportDataSource(this.data.TableName, this.data );
 
             this.reportViewer1.LocalReport.DataSources.Add(source);
 
